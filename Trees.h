@@ -27,13 +27,27 @@ typedef struct Buyer_List_Node{
     struct Buyer_List_Node* right;
 }b_list_node;
 
+typedef struct loyal_buyers_node{
+    b_list_node* buyer;
+    struct loyal_buyers_node* next;
+}loyal_buyers;
+
 typedef struct Seller_List_Node{
     char* seller_id;
     double total_energy;
     tr_node* transaction_tree;
+    loyal_buyers* buyers_list;
     struct Seller_List_Node* left;
     struct Seller_List_Node* right;
 }s_list_node;
+
+typedef struct buyer_seller_node{
+    char* buyer_id;
+    char* seller_id;
+    int no_of_transactions;
+    struct buyer_seller_node* left;
+    struct buyer_seller_node* right;
+}bs_node;
 
 int getHeight(tr_node* root);
 
